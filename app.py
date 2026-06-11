@@ -8,6 +8,7 @@ from core.tray import SystemTray
 from utils.config import Config
 from utils.helpers import get_boot_time, get_theme_from_registry
 from ui.dashboard import DashboardFrame
+from ui.disk_analyzer import DiskAnalyzerFrame
 from ui.cleaner import CleanerFrame
 from ui.startup import StartupFrame
 from ui.process import ProcessFrame
@@ -20,6 +21,7 @@ NAV_ITEMS = [
     ("清理", "cleaner"),
     ("启动项", "startup"),
     ("进程", "process"),
+    ("磁盘分析", "disk_analyzer"),
     ("设置", "settings"),
 ]
 
@@ -175,6 +177,7 @@ class PerfBoostApp:
         self._pages["cleaner"] = CleanerFrame(self.content, self.config)
         self._pages["startup"] = StartupFrame(self.content, self.config)
         self._pages["process"] = ProcessFrame(self.content)
+        self._pages["disk_analyzer"] = DiskAnalyzerFrame(self.content, self.config)
         self._pages["settings"] = SettingsFrame(
             self.content, self.config, on_theme_change=self._on_theme_changed,
         )
